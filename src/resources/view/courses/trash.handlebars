@@ -1,0 +1,39 @@
+<div class="mt-4">
+    <div>
+      <h3>khóa học đã xóa </h3>
+      <a href="/courses/me">khóa học của bạn</a>
+    </div>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tên khóa học</th>
+      <th scope="col">Mô tả</th>
+      <th scope="col">lever</th>
+       <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each course}}
+    <tr>
+      <th scope="row">{{sum @index 1}}</th>
+      <td>{{this.name}}</td>
+      <td>{{this.description}}</td>
+      <td>{{this.lever}}</td>
+      <td>
+       <form method="post" action="/courses/{{this._id}}?_method=PATCH"><button type="submit" class="btn btn-primary" > khôi phục</button></form>
+        <form method="post" action="/courses/delete/{{this._id}}?_method=DELETE"><button type="submit" class="btn btn-primary" > xóa vĩnh viễn</button></form>
+          
+         
+        
+      </td>
+    </tr>
+    {{else}}
+    <tr>
+      <td  colspan="5" class="text-center" > bạn chưa xóa khóa học nào.
+      <a href="/courses/me">khóa học của bạn</a>
+      </td>
+    </tr>
+    {{/each}}
+</table>
+</div>

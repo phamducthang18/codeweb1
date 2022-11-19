@@ -1,0 +1,55 @@
+<div class="mt-4 ">
+    <div>
+      <h3>khóa học của tôi </h3>
+      <a href="/courses/trash" >khóa học đã xóa ({{deleteCount}})</a>
+     <div class="form-check d-flex align-items-center ">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          chọn tất cả 
+        </label>
+        <select class="form-select form-select-lg mb-3 d-flex p-2  " aria-label=".form-select-lg example">
+          <option>--chọn hành động--</option>
+          <option value="delete">xóa</option>
+          
+        </select >
+        <a class="btn btn-primary" href="#" role="button">thực hiện</a>
+      </div>
+      
+      </div>
+    </div>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tên sản phẩm</th>
+      <th scope="col">Mô tả</th>
+      <th scope="col">mã sản phẩm</th>
+       <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each course}}
+    <tr>
+      <th scope="row">{{sum @index 1}}</th>
+      <td>{{this.name}}</td>
+      <td>{{this.mota}}</td>
+      <td>{{this.slug}}</td>
+      <td>
+        <a href="/courses/{{this._id}}/edit" class="btn btn-link">sửa</a>
+         
+          <a href="/courses/{{this._id}}/delete" class="btn btn-link" >xóa</a>
+         
+        
+      </td>
+    </tr>
+    {{else}}
+    <tr>
+      <td colspan="5" class="text-center" > bạn chưa mua sản phẩm nào
+      <a href="/courses/create">đăng khóa học</a>
+      </td>
+    </tr>
+    {{/each}}
+</table>
+</div>
+<!-- Modal -->
+          
